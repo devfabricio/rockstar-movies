@@ -1,4 +1,5 @@
 import React, { ChangeEvent, Dispatch, SetStateAction } from 'react'
+import { FaSearch } from 'react-icons/fa'
 import * as S from './styled'
 import { Movie } from '../../../services/types'
 import { searchMovies } from '../../../services/requests'
@@ -22,7 +23,10 @@ const Header: React.FC<HeaderProps> = ({ setSearchedMovies }) => {
   return (<S.HeaderWrapper>
     <h1>Rockstar Movies</h1>
     <p>All about your favorite movies ... in one place!</p>
-    <input type={'search'} onChange={(event => handleSearchMovies(event))} />
+    <S.SearchWrapper>
+      <FaSearch />
+      <input type={'search'} onChange={(event => handleSearchMovies(event))} placeholder={'Search for a movie...'} />
+    </S.SearchWrapper>
   </S.HeaderWrapper>)
 }
 

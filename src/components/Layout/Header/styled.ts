@@ -16,8 +16,22 @@ export const HeaderWrapper = styled.header`
     font-family: 'Roboto Slab', serif;
     margin: 10px 0 20px 0;
   }
+`
+
+export const SearchWrapper = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  svg {
+    font-size: 1.2rem;
+    position: absolute;
+    left: 10px;
+    top: 10px
+  }
   input {
     width: 100%;
     max-width: 600px;
+    height: 40px;
+    padding-left: 30px;
   }
 `
