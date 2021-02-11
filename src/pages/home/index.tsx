@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Movie } from '../../services/types'
 import { listMoviesByPopularity } from '../../services/requests'
-import { Link } from 'react-router-dom'
-import { imgBaseUrl } from '../../services/api'
+import MovieItem from '../../components/Movie/MovieItem'
 
 const Home = () => {
   const [movies, setMovies] = useState<Movie[]>([])
@@ -16,10 +15,7 @@ const Home = () => {
       <ul>
         {movies.map((movie, index) => {
           return (<li key={movie.id}>
-            <Link to={`/${movie.id}`}>
-              <img src={`${imgBaseUrl}/${movie.poster_path}`} alt={movie.title} />
-              <h3>{movie.title}</h3>
-            </Link>
+            <MovieItem movie={movie} />
           </li>)
         })}
       </ul>
