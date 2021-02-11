@@ -4,20 +4,29 @@ import { listMoviesByPopularity, searchMovies } from '../../services/requests'
 import MovieItem from '../../components/Movie/MovieItem'
 
 const Home = () => {
-  const [movies, setMovies] = useState<Movie[]>([])
+  const [listedMovies, setListedMovies] = useState<Movie[]>([])
+  const [searchedMovies, setSearchedMovies] = useState<Movie[]>([])
 
   useEffect(() => {
     listMoviesByPopularity()
-      .then(data => setMovies(data.results))
+      .then(data => setListedMovies(data.results))
       .catch(error => console.log(error))
   }, [])
 
   const handleSearchMovies = (event: ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value
-    searchMovies(query)
-      .then(data => console.log(data))
-      .catch(error => console.log(error))
+    if (query.length > 0) {
+      searchMovies(query)
+        .then(data => setSearchedMovies(data.results))
+        .catch(error => console.log(error))
+    } else {
+      setSearchedMovies([])
+    }
   }
+
+  const movies = searchedMovies.length > 0
+    ? searchedMovies
+    : listedMovies
 
   return (
     <div className="App">
