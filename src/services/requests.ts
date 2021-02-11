@@ -2,8 +2,17 @@ import { MovieList } from './types'
 import api from './api'
 import { key } from '../api-key'
 
-export const listMoviesByPopularity = async (): Promise<MovieList> => {
-  const response = await api.get(`/discover/movie?api_key=${key}&sort_by=popularity.desc`)
+export const listMoviesByPopularity = async (rating?: number): Promise<MovieList> => {
+  let url = `/discover/movie?api_key=${key}`
+
+  if (rating) {
+    url = `${url}&vote_average.lte=${rating}&sort_by=vote_average.desc`
+  } else {
+    url = `${url}&sort_by=popularity.desc`
+  }
+
+  const response = await api.get(url)
+  console.log(response.data.results)
   return response.data
 }
 

@@ -14,9 +14,3 @@ export const List = styled.ul`
   padding: 0;
   margin: 0;
 `
-
-export const RatingStarsList = styled.ul`
-  .checked {
-    color: orange;
-  }
-`

@@ -32,6 +32,6 @@ export const SearchWrapper = styled.div`
     width: 100%;
     max-width: 600px;
     height: 40px;
-    padding-left: 30px;
+    padding-left: 35px;
   }
 `
