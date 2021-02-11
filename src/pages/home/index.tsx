@@ -1,10 +1,11 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Movie } from '../../services/types'
-import { listMoviesByPopularity } from '../../services/requests'
+import { listMoviesByPopularity, searchMovies } from '../../services/requests'
 import MovieItem from '../../components/Movie/MovieItem'
 
 const Home = () => {
   const [movies, setMovies] = useState<Movie[]>([])
+
   useEffect(() => {
     listMoviesByPopularity()
       .then(data => setMovies(data.results))
@@ -12,7 +13,10 @@ const Home = () => {
   }, [])
 
   const handleSearchMovies = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value)
+    const query = event.target.value
+    searchMovies(query)
+      .then(data => console.log(data))
+      .catch(error => console.log(error))
   }
 
   return (
