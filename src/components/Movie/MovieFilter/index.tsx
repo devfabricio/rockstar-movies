@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useCallback } from 'react'
-import { RiMovie2Line, RiSearchLine } from 'react-icons/ri'
+import { RiMovie2Line, RiSearchLine, RiStarFill } from 'react-icons/ri'
 import * as S from './styled'
 
 interface MovieFilterProps {
@@ -20,9 +20,10 @@ const MovieFilter: React.FC<MovieFilterProps> = ({ currentRating, setCurrentRati
   const ratingStars = new Array(5).fill(1)
 
   return (<S.MovieFilterWrapper>
-    {!searchIsEnabled
-      ? <>
-    <h2><RiMovie2Line /> Most Popular Movies</h2>
+    {searchIsEnabled && <h2><RiSearchLine /> Found Movies: </h2>}
+    {(currentRating > 0 && !searchIsEnabled) && <h2><RiStarFill /> Filtered by rating: </h2>}
+    {(!searchIsEnabled) && <>
+    {currentRating === 0 && <h2><RiMovie2Line /> Most Popular Movies</h2>}
     <div>Filter by rating:
       <S.RatingStarsList>
         {ratingStars.map((star: number, index) => {
@@ -33,9 +34,7 @@ const MovieFilter: React.FC<MovieFilterProps> = ({ currentRating, setCurrentRati
         })}
       </S.RatingStarsList>
     </div>
-    </>
-      : <h2><RiSearchLine /> Founded Movies: </h2>
-    }
+    </>}
   </S.MovieFilterWrapper>)
 }
 

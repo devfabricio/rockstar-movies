@@ -22,7 +22,6 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
-    console.log(currentRating)
     getMovies(currentRating)
   }, [currentRating])
 
@@ -37,6 +36,7 @@ const Home = () => {
           {movies.map((movie) => {
             return (<MovieItem movie={movie} key={movie.id} />)
           })}
+          {(searchedMovies && movies.length === 0) && <p style={{ textAlign: 'center', marginLeft: 50 }}>Sorry, no movies were found :(</p>}
         </S.List>
       </S.Content>
     </S.Wrapper>

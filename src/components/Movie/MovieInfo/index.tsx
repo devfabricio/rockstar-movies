@@ -4,6 +4,7 @@ import RatingStars from './RatingStars'
 import MovieGenres from './MovieGenres'
 import * as S from './styled'
 import MovieProductions from './MovieProductions'
+import { format } from 'date-fns'
 
 interface MovieInfoProps {
   movie: Movie
@@ -18,8 +19,8 @@ const MovieInfo: React.FC<MovieInfoProps> = ({ movie }) => {
       <p>{movie.overview}</p>
     </S.MovieInfoDivision>
     <S.MovieInfoDivision>
-      <b>Date: </b>
-      <span>{movie.release_date}</span>
+      <b>Year: </b>
+      <span>{format(new Date(movie.release_date), 'yyyy')}</span>
     </S.MovieInfoDivision>
     {movie.production_companies && <MovieProductions productionCompanies={movie.production_companies} />}
     <S.MovieInfoDivision>

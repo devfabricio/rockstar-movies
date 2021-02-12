@@ -1,5 +1,5 @@
 import React, { ChangeEvent, Dispatch, SetStateAction } from 'react'
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch, FaHome } from 'react-icons/fa'
 import * as S from './styled'
 import { Movie } from '../../../services/types'
 import { searchMovies } from '../../../services/requests'
@@ -29,7 +29,9 @@ const Header: React.FC<HeaderProps> = ({ setSearchedMovies, goToHomeLink }) => {
       <FaSearch />
       <input type={'search'} onChange={(event => handleSearchMovies(event))} placeholder={'Search for a movie...'} />
     </S.SearchWrapper>}
-    {goToHomeLink && <Link to={'/'} >Go to Home</Link>}
+    {goToHomeLink && <S.GoToHome>
+      <Link to={'/'} ><FaHome /> Go to Home</Link>
+    </S.GoToHome>}
   </S.HeaderWrapper>)
 }
 

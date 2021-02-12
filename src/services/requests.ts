@@ -12,7 +12,6 @@ export const listMoviesByPopularity = async (rating?: number): Promise<MovieList
   }
 
   const response = await api.get(url)
-  console.log(response.data.results)
   return response.data
 }
 

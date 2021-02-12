@@ -44,3 +44,16 @@ export const SearchWrapper = styled.div`
     font-size: 1rem;
   }
 `
+
+export const GoToHome = styled.div`
+  a {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 5px;
+  &:hover {
+    opacity: 0.8
+  }
+ }
+`

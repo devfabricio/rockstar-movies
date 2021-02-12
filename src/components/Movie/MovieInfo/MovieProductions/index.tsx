@@ -11,7 +11,7 @@ const MovieProductions: React.FC<MovieGenresProps> = ({ productionCompanies }) =
     <b>Productions:</b>
     <div>
       {productionCompanies.map((company, index) => {
-        return <span key={index}>{company.name}, </span>
+        return <span key={index}>{company.name}{index === productionCompanies.length - 1 ? '' : ','} </span>
       })}
     </div>
   </S.MovieInfoDivision>)
