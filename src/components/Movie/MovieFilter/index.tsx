@@ -1,13 +1,14 @@
 import React, { Dispatch, SetStateAction, useCallback } from 'react'
-import { RiMovie2Line } from 'react-icons/ri'
+import { RiMovie2Line, RiSearchLine } from 'react-icons/ri'
 import * as S from './styled'
 
 interface MovieFilterProps {
   currentRating: number
   setCurrentRating: Dispatch<SetStateAction<number>>
+  searchIsEnabled: boolean
 }
 
-const MovieFilter: React.FC<MovieFilterProps> = ({ currentRating, setCurrentRating }) => {
+const MovieFilter: React.FC<MovieFilterProps> = ({ currentRating, setCurrentRating, searchIsEnabled }) => {
   const handleClickStar = useCallback((rate: number) => {
     if (rate === currentRating) {
       setCurrentRating(0)
@@ -19,6 +20,8 @@ const MovieFilter: React.FC<MovieFilterProps> = ({ currentRating, setCurrentRati
   const ratingStars = new Array(5).fill(1)
 
   return (<S.MovieFilterWrapper>
+    {!searchIsEnabled
+      ? <>
     <h2><RiMovie2Line /> Most Popular Movies</h2>
     <div>Filter by rating:
       <S.RatingStarsList>
@@ -30,6 +33,9 @@ const MovieFilter: React.FC<MovieFilterProps> = ({ currentRating, setCurrentRati
         })}
       </S.RatingStarsList>
     </div>
+    </>
+      : <h2><RiSearchLine /> Founded Movies: </h2>
+    }
   </S.MovieFilterWrapper>)
 }
 

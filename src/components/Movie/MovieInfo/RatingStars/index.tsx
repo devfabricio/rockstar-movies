@@ -1,5 +1,5 @@
 import React from 'react'
-import * as S from '../../../pages/SingleMovie/styled'
+import * as S from '../styled'
 
 const ratingStars = new Array(5).fill(1)
 

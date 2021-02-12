@@ -1,6 +1,6 @@
 import React from 'react'
-import { ProductionCompany } from '../../../services/types'
-import * as S from '../../../pages/SingleMovie/styled'
+import { ProductionCompany } from '../../../../services/types'
+import * as S from '../styled'
 
 interface MovieGenresProps {
   productionCompanies: ProductionCompany[]

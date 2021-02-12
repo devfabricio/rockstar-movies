@@ -1,6 +1,6 @@
 import React from 'react'
-import { Genre } from '../../../services/types'
-import * as S from '../../../pages/SingleMovie/styled'
+import { Genre } from '../../../../services/types'
+import * as S from '../styled'
 
 interface MovieGenresProps {
   movieGenres: Genre[]

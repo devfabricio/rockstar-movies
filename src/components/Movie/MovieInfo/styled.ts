@@ -1,23 +1,19 @@
 import styled from 'styled-components'
 
-export const MovieFilterWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+export const MovieInfo = styled.div`
+  margin-left: 20px;
   font-family: 'Roboto', sans-serif;
-  margin: 60px 0 10px 0;
-  padding: 0 20px;
-  
-  svg {
-    color: #d9502c
+  h2 {
+    margin: 0
   }
 `
 
 export const RatingStarsList = styled.ul`
   margin-left: 5px;
   list-style: none;
-  display: inline;
+  display: inline-block;
   padding: 0;
+  margin: 10px 0;
   span {
     color: #bfbfbf;
   }
@@ -28,5 +24,13 @@ export const RatingStarsList = styled.ul`
     margin-left: 1px;
     cursor: pointer;
     display: inline;
+  }
+`
+
+export const MovieInfoDivision = styled.div`
+  margin-bottom: 10px;
+  a {
+    color: #d9502c;
+    font-weight: bold
   }
 `

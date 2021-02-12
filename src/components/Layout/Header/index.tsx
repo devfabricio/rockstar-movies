@@ -6,7 +6,7 @@ import { searchMovies } from '../../../services/requests'
 import { Link } from 'react-router-dom'
 
 interface HeaderProps {
-  setSearchedMovies?: Dispatch<SetStateAction<Movie[]>>
+  setSearchedMovies?: Dispatch<SetStateAction<Movie[] | null>>
   goToHomeLink?: boolean
 }
 
@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ setSearchedMovies, goToHomeLink }) => {
         .then(data => setSearchedMovies!!(data.results))
         .catch(error => console.log(error))
     } else {
-      setSearchedMovies!!([])
+      setSearchedMovies!!(null)
     }
   }
 

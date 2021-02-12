@@ -4,10 +4,8 @@ import { getMovieDetail } from '../../services/requests'
 import * as S from './styled'
 import Header from '../../components/Layout/Header'
 import { Movie } from '../../services/types'
-import { imgBaseUrl } from '../../services/api'
-import RatingStars from '../../components/Movie/RatingStars'
-import MovieGenres from '../../components/Movie/MovieGenres'
-import MovieProductions from '../../components/Movie/MovieProductions'
+import MovieInfo from '../../components/Movie/MovieInfo'
+import MoviePoster from '../../components/Movie/MoviePoster'
 
 const SingleMovie: React.FC = () => {
   const history = useHistory()
@@ -26,25 +24,8 @@ const SingleMovie: React.FC = () => {
     <Header goToHomeLink={true} />
     <S.Content>
       {movie && <S.MovieDetailWrapper>
-        <div>
-          <img src={`${imgBaseUrl}/${movie.poster_path}`} alt={movie.title} />
-        </div>
-        <S.MovieInfo>
-          <h2>{movie.title}</h2>
-          {movie.vote_average && <RatingStars movieVoteAverage={movie.vote_average} />}
-          {movie.genres && <MovieGenres movieGenres={movie.genres} />}
-          <S.MovieInfoDivision>
-            <p>{movie.overview}</p>
-          </S.MovieInfoDivision>
-          <S.MovieInfoDivision>
-            <b>Date: </b>
-            <span>{movie.release_date}</span>
-          </S.MovieInfoDivision>
-          {movie.production_companies && <MovieProductions productionCompanies={movie.production_companies} />}
-          <S.MovieInfoDivision>
-            <a href={movie.homepage} rel="noreferrer" target={'_blank'}>Original Site</a>
-          </S.MovieInfoDivision>
-        </S.MovieInfo>
+        <MoviePoster movieTitle={movie.title} posterPath={movie.poster_path} />
+        <MovieInfo movie={movie} />
       </S.MovieDetailWrapper>}
     </S.Content>
   </S.Wrapper>)

@@ -8,7 +8,7 @@ import MovieFilter from '../../components/Movie/MovieFilter'
 
 const Home = () => {
   const [listedMovies, setListedMovies] = useState<Movie[]>([])
-  const [searchedMovies, setSearchedMovies] = useState<Movie[]>([])
+  const [searchedMovies, setSearchedMovies] = useState<Movie[] | null>(null)
   const [currentRating, setCurrentRating] = useState<number>(0)
 
   const getMovies = (rating?: number) => {
@@ -26,15 +26,13 @@ const Home = () => {
     getMovies(currentRating)
   }, [currentRating])
 
-  const movies = searchedMovies.length > 0
-    ? searchedMovies
-    : listedMovies
+  const movies = searchedMovies || listedMovies
 
   return (
     <S.Wrapper>
       <Header setSearchedMovies={setSearchedMovies} />
       <S.Content>
-        <MovieFilter currentRating={currentRating} setCurrentRating={setCurrentRating} />
+        <MovieFilter currentRating={currentRating} setCurrentRating={setCurrentRating} searchIsEnabled={!!searchedMovies} />
         <S.List>
           {movies.map((movie) => {
             return (<MovieItem movie={movie} key={movie.id} />)
