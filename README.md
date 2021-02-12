@@ -18,7 +18,9 @@ In `./src` directory, create a file named `api-key.ts`.
 
 In `api-key.ts`, copy and paste the following line of code, replacing `your_api_key_here` with the api generated in TMDb:
 
-##### export const key = 'your_api_key_here'
+```
+ export const key = 'your_api_key_here'
+```
 
 Go back to the project's root directory on terminal and install the dependencies with the following commands
 
