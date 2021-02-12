@@ -4,9 +4,11 @@ This project was created with [ReactJS](https://reactjs.org/).
 
 Make sure you have the current version of Node installed on your machine.
 
-## Follow the steps
+First of all, you need to create an account on [The Movie Database (TMDb)](https://www.themoviedb.org/) and generate your API KEY.
 
-Create an account on [The Movie Database (TMDb)](https://www.themoviedb.org/) and generate your API KEY.
+When you're done ...
+
+## Follow the steps
 
 Clone the repository on your local machine:
 
@@ -20,25 +22,25 @@ In `api-key.ts`, copy and paste the following line of code, replacing `your_api_
 
 Go back to the project's root directory on terminal and install the dependencies with the following commands
 
-##### yarn install
+##### `yarn install`
 
 or
 
-##### npm install
+##### `npm install`
 
 After installing the dependencies, run the following command on terminal to launch the application:
 
-##### yarn start
+##### `yarn start`
 
 or
 
-##### npm start
+##### `npm start`
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser and... enjoy the app!
 
 To deploy your app, run the following command line on terminal
 
-### `yarn build`
+#### `yarn build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -48,8 +50,6 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Follow Me
+## Any questions?
 
-[Linkedin](https://www.linkedin.com/in/devfabricio/)
-
-[Instagram](https://www.instagram.com/fabricioagm/).
+Follow me and contact me at [Linkedin](https://www.linkedin.com/in/devfabricio/) or [Instagram](https://www.instagram.com/fabricioagm/)
