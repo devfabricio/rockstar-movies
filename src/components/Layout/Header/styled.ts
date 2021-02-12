@@ -2,19 +2,23 @@ import styled from 'styled-components'
 
 export const HeaderWrapper = styled.header`
   width: 100%;
-  max-width: 960px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 40px 20px;
   text-align: center;
+  background: #d9502c;
   
   h1 {
     font-family: 'Roboto Slab', serif;
     font-weight: 900;
     margin: 10px 0;
+    color: #fff;
+    opacity: 0.9;
   }
   p {
     font-family: 'Roboto Slab', serif;
     margin: 10px 0 20px 0;
+    color: #fff;
+    opacity: 0.9;
   }
 `
 
