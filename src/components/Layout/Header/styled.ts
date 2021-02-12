@@ -30,12 +30,17 @@ export const SearchWrapper = styled.div`
     font-size: 1.2rem;
     position: absolute;
     left: 10px;
-    top: 10px
+    top: 10px;
+    opacity: 0.3;
   }
   input {
     width: 100%;
     max-width: 600px;
     height: 40px;
     padding-left: 35px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
   }
 `

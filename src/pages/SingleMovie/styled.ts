@@ -14,7 +14,7 @@ export const MovieDetailWrapper = styled.div`
   display: flex;
   margin-top: 40px;
 `
-export const MovieInformations = styled.div`
+export const MovieInfo = styled.div`
   margin-left: 20px;
   font-family: 'Roboto', sans-serif;
   h2 {
@@ -35,5 +35,13 @@ export const RatingStarsList = styled.ul`
     margin-left: 1px;
     cursor: pointer;
     display: inline;
+  }
+`
+
+export const MovieInfoDivision = styled.div`
+  margin-bottom: 10px;
+  a {
+    color: #d9502c;
+    font-weight: bold
   }
 `

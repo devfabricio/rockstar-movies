@@ -5,6 +5,9 @@ import * as S from './styled'
 import Header from '../../components/Layout/Header'
 import { Movie } from '../../services/types'
 import { imgBaseUrl } from '../../services/api'
+import RatingStars from '../../components/Movie/RatingStars'
+import MovieGenres from '../../components/Movie/MovieGenres'
+import MovieProductions from '../../components/Movie/MovieProductions'
 
 const SingleMovie: React.FC = () => {
   const history = useHistory()
@@ -19,10 +22,6 @@ const SingleMovie: React.FC = () => {
       .catch(error => console.log(error))
   }, [history])
 
-  const ratingStars = new Array(5).fill(1)
-
-  console.log(movie)
-
   return (<S.Wrapper>
     <Header goToHomeLink={true} />
     <S.Content>
@@ -30,36 +29,22 @@ const SingleMovie: React.FC = () => {
         <div>
           <img src={`${imgBaseUrl}/${movie.poster_path}`} alt={movie.title} />
         </div>
-        <S.MovieInformations>
+        <S.MovieInfo>
           <h2>{movie.title}</h2>
-          <S.RatingStarsList>
-            {ratingStars.map((star: number, index) => {
-              const rate = (index + 1) * 2
-              return <li key={index}>
-                <span className={`fa fa-star ${rate <= movie?.vote_average ? 'checked' : null}`} />
-              </li>
-            })}
-          </S.RatingStarsList>
-          <div>
-            {movie.genres?.map((genre, index) => {
-              return <span key={index}>{genre.name}, </span>
-            })}
-          </div>
-          <p>{movie.overview}</p>
-          <div>
+          {movie.vote_average && <RatingStars movieVoteAverage={movie.vote_average} />}
+          {movie.genres && <MovieGenres movieGenres={movie.genres} />}
+          <S.MovieInfoDivision>
+            <p>{movie.overview}</p>
+          </S.MovieInfoDivision>
+          <S.MovieInfoDivision>
             <b>Date: </b>
             <span>{movie.release_date}</span>
-          </div>
-          <div>
-            <b>Productions:</b>
-            <div>
-            {movie.production_companies?.map((company, index) => {
-              return <span key={index}>{company.name}, </span>
-            })}
-            </div>
-          </div>
-          <a href={movie.homepage} rel="noreferrer" target={'_blank'}>Original Site</a>
-        </S.MovieInformations>
+          </S.MovieInfoDivision>
+          {movie.production_companies && <MovieProductions productionCompanies={movie.production_companies} />}
+          <S.MovieInfoDivision>
+            <a href={movie.homepage} rel="noreferrer" target={'_blank'}>Original Site</a>
+          </S.MovieInfoDivision>
+        </S.MovieInfo>
       </S.MovieDetailWrapper>}
     </S.Content>
   </S.Wrapper>)
