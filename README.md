@@ -4,6 +4,8 @@ This project was created with [ReactJS](https://reactjs.org/).
 
 Make sure you have the current version of Node installed on your machine.
 
+### Attention!
+
 First of all, you need to create an account on [The Movie Database (TMDb)](https://www.themoviedb.org/) and generate your API KEY.
 
 When you're done ...
